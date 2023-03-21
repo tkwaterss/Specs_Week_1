@@ -1,0 +1,61 @@
+Specializations Orientation
+
+Udemy and Infosec Content Platforms
+
+
+	
+Pair-programming - take a snapshot and post in channel
+Point per day
+10 points get you a swag item
+25 pointes gets you a dev mountain champion tee
+
+www.shopdevmountain.com/collections/prizes
+
+Lightning Talks - on a technical topic of your choice
+- 10 to 15 minutes lunch and learn style presentation
+- reach out to tech lead to schedule
+- 5 pointes earned through lightning talks
+
+Tech Leads First Meeting
+Standups are mandatory - 8:30 and 3:00
+Outcomes is mandatory - Thursday morning?
+Alumni Plugins are mandatory - will be announced by outcomes
+
+Queue questions should be very detailed
+Guidelines are pinned
+Helps leads know what they are jumping into
+
+Submitting Work
+	github repo with unit project inside
+	turn in unit projects in same place as assessments
+
+Explain bullets are great for job prep, being able to talk about concepts.
+
+Some Reccomendations from tech lead:
+
+Do not use tab9 (vs code extension)
+do not use github co-pilot (look into it)
+chat GPT - great tool for debugging and getting ideas
+	put errors in to get meaning
+	ask about packages that can do what you want
+	Basically ask it questions
+Build everyday - start a new app every day
+	-play with react for a bit every day
+
+
+VS Code Extensions
+	- auto rename tag
+	- ColdCode - for getting screengrabs of code (just for styling)
+		-highlight code -> right click -> select ColdCode at bottom
+	- colorful comments - allows for changing comment text color
+		-use a keyword at beginning to change color
+		-NEED TO LOOK AT COMMANDS
+	-Insert new line - create a new line under your current position
+		-need to set hot key
+	-markdown preview enhanced - live view of file
+		-right click in markdown file and select preview
+
+	-Settings - emmit NEED TO LOOK AT
+		Changing emmet settings to javascript react NEED TO COME BACK TOO
+	-Setup prettier with a key bind
+
