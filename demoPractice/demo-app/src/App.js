@@ -1,5 +1,6 @@
 import "./App.css";
 import Greeting from "./components/greeting";
+import Bravo from './components/bravo';
 
 function App() {
   let myPeople = [
@@ -28,6 +29,8 @@ function App() {
     <div className="App">
       <h1>These are my people!</h1>
       {peopleDisplay}
+      <br />
+      <Bravo />
     </div>
   );
 }
