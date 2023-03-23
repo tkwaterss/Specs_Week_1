@@ -20,6 +20,7 @@ const Bravo = () => {
       <h2>Name: {name}</h2>
       <form onSubmit={submitHandler}>
         <input
+          value={nameInput}
           onChange={handleChange}
           type="text"
           placeholder="What's your name?"
