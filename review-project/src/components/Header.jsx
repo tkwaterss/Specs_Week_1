@@ -2,13 +2,14 @@ import React from "react";
 import "./Header.css";
 import headerImage from "./header-image.png"
 
-const Header = () => {
+const Header = (props) => {
+
   return (
     <div className="header">
-      <img className="header-image" src={headerImage} alt="header" />
+      <img onClick={() => props.changePage('Home')} className="header-image" src={headerImage} alt="header" />
       <div className="header-links">
-        <a href="">Create Account</a>
-        <a href="">Login</a>
+        <h3 onClick={() => props.changePage('CreateAccountForm')} >Create Account</h3>
+        <h3 onClick={() => props.changePage('Login')} >Login</h3>
       </div>
     </div>
   );

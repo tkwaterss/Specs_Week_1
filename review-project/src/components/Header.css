@@ -11,7 +11,13 @@
     display:flex;
     justify-content: space-evenly;
 }
+.header-links:hover {
+    cursor: pointer;
+}
 
 .header-image {
     height: 15vh;
+}
+.header-image:hover {
+    cursor: pointer;
 }
