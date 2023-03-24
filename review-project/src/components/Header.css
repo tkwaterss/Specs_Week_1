@@ -1,0 +1,17 @@
+.header {
+    width: 100vw;
+    height: 15vh;
+    background-color: rgb(247, 218, 180);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-links {
+    width: 50vw;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.header-image {
+    height: 15vh;
+}
