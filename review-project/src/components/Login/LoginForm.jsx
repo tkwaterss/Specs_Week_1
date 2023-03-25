@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 
 const LoginForm = (props) => {
-  const { accounts } = props;
+  const { accounts, viewAccount } = props;
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const trackUserName = (event) => setUserName(event.target.value);
   const trackPassword = (event) => setPassword(event.target.value);
-  
-  
+
   const loginHandler = (event) => {
     event.preventDefault();
-
+    console.log(accounts);
     accounts.forEach((account) => {
       if (account.userName === userName && account.password === password) {
-        props.changePage('Account', account);
-      } else {
-        alert("Account info does not match");
+        viewAccount("Account", account);
+        //TODO add another function changeLinks (passes 'logged in')
+        props.loggedIn(true);
       }
     });
   };
@@ -41,7 +40,7 @@ const LoginForm = (props) => {
       />
       <button className="submit-button">Login</button>
     </form>
-    );
+  );
 };
 
 export default LoginForm;

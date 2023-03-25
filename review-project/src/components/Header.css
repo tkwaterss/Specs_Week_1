@@ -10,9 +10,11 @@
     width: 50vw;
     display:flex;
     justify-content: space-evenly;
+    font-size: 2em;
 }
-.header-links:hover {
+.header-link:hover {
     cursor: pointer;
+    color: #832283;
 }
 
 .header-image {

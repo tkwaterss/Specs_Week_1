@@ -10,6 +10,12 @@ import "./App.css";
 
 function App() {
   const [viewPage, setViewPage] = useState("Home");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [account, setAccount] = useState({
+    userName: "",
+    password: "",
+    toDoList: [],
+  });
   const [accounts, setAccounts] = useState([
     {
       userName: "asdf",
@@ -17,12 +23,11 @@ function App() {
       toDoList: ["one", "two", "three"],
     },
     {
-      userName: 'tobin',
-      password: 'faster',
-      toDoList: ['hi','hello','bye']
+      userName: "tobin",
+      password: "faster",
+      toDoList: ["hi", "hello", "bye"],
     },
   ]);
-  const [account, setAccount] = useState({});
 
   const changePage = (viewPage) => {
     setViewPage(viewPage);
@@ -37,24 +42,29 @@ function App() {
     setAccounts([...accounts, newAccount]);
   };
 
-  const updateAccount = (updatedAccount) => {
-    setAccounts(...accounts, updatedAccount);
-
-  }
-  console.log(accounts)
-
   return (
     <div className="App">
-      <Header changePage={changePage} />
+      <Header
+        changePage={changePage}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setAccount={setAccount}
+      />
 
       {viewPage === "Home" && <Home />}
       {viewPage === "CreateAccountForm" && (
         <CreateAccountForm addAccount={addAccount} accounts={accounts} />
       )}
       {viewPage === "Login" && (
-        <LoginForm accounts={accounts} changePage={viewAccount} />
+        <LoginForm
+          accounts={accounts}
+          viewAccount={viewAccount}
+          loggedIn={setIsLoggedIn}
+        />
       )}
-      {viewPage === "Account" && <AccountPage account={account} updateAccount={updateAccount}/>}
+      {viewPage === "Account" && (
+        <AccountPage account={account} />
+      )}
 
       <Footer />
     </div>
