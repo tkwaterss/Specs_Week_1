@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AccountPage.css";
 
 const AccountPage = (props) => {
   const [listItem, setListItem] = useState("");
@@ -9,25 +10,33 @@ const AccountPage = (props) => {
   const addHandler = (event) => {
     event.preventDefault();
     account.toDoList.push(listItem);
-    setListItem('');
+    setListItem("");
   };
 
   let listItems = account.toDoList.map((item, index) => {
-    return <li key={index}>{item}</li>;
+    return (
+      <li key={index} className="todo-list-item">
+        {item}
+      </li>
+    );
   });
 
   return (
-    <div>
-      <form onSubmit={addHandler}>
+    <div className="todo-container">
+      <form onSubmit={addHandler} className="todo-form">
         <input
           onChange={trackListItem}
           value={listItem}
           type="text"
           placeholder="enter to-do item"
+          className="add-todo-input"
         ></input>
-        <button>Add</button>
+        <button className="add-todo-button">Add</button>
       </form>
-      <ul>{listItems}</ul>
+      <div className="list-container">
+        <h3>To Do List:</h3>
+        <ul className="todo-list">{listItems}</ul>
+      </div>
     </div>
   );
 };

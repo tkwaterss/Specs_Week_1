@@ -51,7 +51,7 @@ function App() {
         setAccount={setAccount}
       />
 
-      {viewPage === "Home" && <Home />}
+      {viewPage === "Home" && <Home accounts={accounts}/>}
       {viewPage === "CreateAccountForm" && (
         <CreateAccountForm addAccount={addAccount} accounts={accounts} />
       )}
@@ -62,9 +62,7 @@ function App() {
           loggedIn={setIsLoggedIn}
         />
       )}
-      {viewPage === "Account" && (
-        <AccountPage account={account} />
-      )}
+      {viewPage === "Account" && <AccountPage account={account} />}
 
       <Footer />
     </div>

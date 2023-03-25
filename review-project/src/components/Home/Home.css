@@ -2,8 +2,14 @@
     height: 70vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12em;
-    color: rgb(131, 34, 131)
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: rgb(131, 34, 131);
+    padding: 10%;
+}
+.account-div {
+    padding: 20px;
+}
+.account-list {
+    list-style-position: inside;
 }
