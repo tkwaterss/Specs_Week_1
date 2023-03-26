@@ -1,0 +1,18 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.listContainer {
+    background-color: white;
+    width: 60%;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 5px 15px;
+}
+.listItem {
+    border: solid 1px black;
+    padding: 5px;
+    margin: 10px;
+}

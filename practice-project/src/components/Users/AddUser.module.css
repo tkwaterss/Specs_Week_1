@@ -1,0 +1,33 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.formContainer {
+    background-color: white;
+    height: 200px;
+    width: 60%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    justify-content: space-evenly;
+}
+
+.userInput {
+    padding: 5px;
+}
+.inputLabel {
+    padding: 5px;
+}
+.button {
+    padding: 5px;
+    margin: 10px 0;
+}
