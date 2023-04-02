@@ -1,26 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import CreateAccountForm from "./components/CreateAccount/CreateAccountForm";
 import Home from "./components/Home/Home";
 import LoginForm from "./components/Login/LoginForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AccountPage from "./components/AccountPage/AccountPage";
-
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import AccountContext from "./state/AccountContext";
 
 import "./App.css";
 
 function App() {
   const [viewPage, setViewPage] = useState("Home");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [account, setAccount] = useState({
-    userName: "",
-    password: "",
-    toDoList: [],
-  });
+  const { dispatchAccount } = useContext(AccountContext);
   const [accounts, setAccounts] = useState([
     {
       userName: "asdf",
@@ -39,8 +30,8 @@ function App() {
   };
 
   const viewAccount = (viewPage, account) => {
+    dispatchAccount({ type: "LOGIN", payload: account });
     setViewPage(viewPage);
-    setAccount(account);
   };
 
   const addAccount = (newAccount) => {
@@ -49,26 +40,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        changePage={changePage}
-        isLoggedIn={isLoggedIn}
-        setIsLoggedIn={setIsLoggedIn}
-        setAccount={setAccount}
-      />
-
-      {viewPage === "Home" && <Home accounts={accounts}/>}
+      <Header changePage={changePage} />
+      {viewPage === "Home" && <Home accounts={accounts} />}
       {viewPage === "CreateAccountForm" && (
         <CreateAccountForm addAccount={addAccount} accounts={accounts} />
       )}
       {viewPage === "Login" && (
-        <LoginForm
-          accounts={accounts}
-          viewAccount={viewAccount}
-          loggedIn={setIsLoggedIn}
-        />
+        <LoginForm accounts={accounts} viewAccount={viewAccount} />
       )}
-      {viewPage === "Account" && <AccountPage account={account} />}
-
+      {viewPage === "Account" && <AccountPage />}
       <Footer />
     </div>
   );

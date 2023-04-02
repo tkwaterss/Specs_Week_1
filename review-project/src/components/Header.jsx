@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import headerImage from "./header-image.png";
+import AccountContext from "../state/AccountContext";
 
 const Header = (props) => {
-  let { isLoggedIn, setIsLoggedIn, changePage, setAccount } = props;
+  let { changePage } = props;
+  const { accountState, dispatchAccount } = useContext(AccountContext);
 
   const logOut = () => {
+    dispatchAccount({ type: "LOGOUT" });
     changePage("Home");
-    setIsLoggedIn(false);
-    setAccount({
-      userName: "",
-      password: "",
-      toDoList: [],
-    });
   };
 
   return (
@@ -24,7 +21,7 @@ const Header = (props) => {
         alt="header"
       />
       <div className="header-links">
-        {isLoggedIn === false && (
+        {accountState.isLoggedIn === false && (
           <h3
             className="header-link"
             onClick={() => changePage("CreateAccountForm")}
@@ -32,20 +29,18 @@ const Header = (props) => {
             Create Account
           </h3>
         )}
-        {isLoggedIn === false && (
+        {accountState.isLoggedIn === false && (
           <h3 className="header-link" onClick={() => changePage("Login")}>
             Login
           </h3>
         )}
-        {isLoggedIn === true && (
+        {accountState.isLoggedIn === true && (
           <h3 className="header-link" onClick={() => changePage("Account")}>
-            {/* Still need to make this log the account out */}
             Account
           </h3>
         )}
-        {isLoggedIn === true && (
-          <h3 className="header-link" onClick={() => logOut()}>
-            {/* Still need to make this log the account out */}
+        {accountState.isLoggedIn === true && (
+          <h3 className="header-link" onClick={logOut}>
             Log Out
           </h3>
         )}

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useRef } from "react";
+import AccountContext from "../../state/AccountContext";
 import "./AccountPage.css";
 
-const AccountPage = (props) => {
-  const [listItem, setListItem] = useState("");
-  let { account } = props;
-
-  const trackListItem = (event) => setListItem(event.target.value);
+const AccountPage = () => {
+  const { accountState } = useContext(AccountContext);
+  const listItemRef = useRef();
 
   const addHandler = (event) => {
     event.preventDefault();
-    account.toDoList.push(listItem);
-    setListItem("");
+    accountState.account.toDoList.push(listItemRef.current.value);
+    //!This needs to be switched to a dispatch I think
+    listItemRef.current.value = "";
   };
 
-  let listItems = account.toDoList.map((item, index) => {
+  let listItems = accountState.account.toDoList.map((item) => {
     return (
-      <li key={index} className="todo-list-item">
+      <li key={Math.random()} className="todo-list-item">
         {item}
       </li>
     );
@@ -25,8 +25,7 @@ const AccountPage = (props) => {
     <div className="todo-container">
       <form onSubmit={addHandler} className="todo-form">
         <input
-          onChange={trackListItem}
-          value={listItem}
+          ref={listItemRef}
           type="text"
           placeholder="enter to-do item"
           className="add-todo-input"

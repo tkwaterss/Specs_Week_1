@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import "./LoginForm.css";
 
 const LoginForm = (props) => {
   const { accounts, viewAccount } = props;
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
 
-  const trackUserName = (event) => setUserName(event.target.value);
-  const trackPassword = (event) => setPassword(event.target.value);
+  const userNameRef = useRef();
+  const passwordRef = useRef();
 
   const loginHandler = (event) => {
     event.preventDefault();
-    console.log(accounts);
+
     accounts.forEach((account) => {
-      if (account.userName === userName && account.password === password) {
+      if (
+        account.userName === userNameRef.current.value &&
+        account.password === passwordRef.current.value
+      ) {
         viewAccount("Account", account);
-        //TODO add another function changeLinks (passes 'logged in')
-        props.loggedIn(true);
       }
     });
   };
@@ -25,15 +24,13 @@ const LoginForm = (props) => {
     <form onSubmit={loginHandler} className="create-account-form">
       <h2>Enter Your Account Info:</h2>
       <input
-        onChange={trackUserName}
-        value={userName}
+        ref={userNameRef}
         type="text"
         className="form-input"
         placeholder="User Name"
       />
       <input
-        onChange={trackPassword}
-        value={password}
+        ref={passwordRef}
         type="password"
         className="form-input"
         placeholder="Password"
